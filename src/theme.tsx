@@ -33,6 +33,14 @@ const theme = extendTheme({
   colors: {
     black: '#16161D',
   },
+  styles: {
+    global: {
+      body: {
+        backgroundColor: 'gray.100',
+        color: 'gray.900',
+      },
+    },
+  },
   fonts,
   breakpoints,
 })
