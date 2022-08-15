@@ -3,10 +3,9 @@ import { Checkbox } from '@chakra-ui/checkbox';
 import { Flex, Heading } from '@chakra-ui/layout';
 import { Box } from '@chakra-ui/react';
 import { Textarea } from '@chakra-ui/textarea';
-// import { RiGhost2Line } from 'react-icons/ri';
 
 import { PrimaryButton } from './PrimaryButton';
-// import { DeleteFunction } from './DeleteFunction';
+import { DeleteButton } from './DeleteButton';
 
 type Props = {
 	id: string;
@@ -54,7 +53,7 @@ export const MemoItem: VFC<Props> = memo((props) => {
 				value={description}></Textarea>
 			<Flex pt={2} alignItems="center">
 				<PrimaryButton onClick={() => onClick(id)}>更新</PrimaryButton>
-				{/* <DeleteFunction id={id} /> */}
+				<DeleteButton id={id} />
 				<Checkbox isChecked={checkedFlag} ml={3}>
 					表示
 				</Checkbox>

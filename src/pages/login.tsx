@@ -6,12 +6,16 @@ import { Center } from '@chakra-ui/react';
 
 import { PrimaryButton } from '../components/PrimaryButton';
 
+import { useMemoData } from '../hooks/useMemoData';
+
 export const Login = () => {
 	const [email, setEmail] = useState("");
 	const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
 
 	const [password, setPassword] = useState("");
 	const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
+
+	const { getToken } = useMemoData();
 
 	return (
 		<Flex align="center" justify="center" h="100vh">
@@ -35,7 +39,11 @@ export const Login = () => {
 								onChange={onChangePassword}
 								value={password}
 							/>
-							<PrimaryButton>ログイン</PrimaryButton>
+							<PrimaryButton
+								onClick={() => {
+									getToken(email, password);
+								}}
+							>ログイン</PrimaryButton>
 						</Box>
 					</Flex>
 				</Box>

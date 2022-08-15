@@ -12,13 +12,13 @@ export const Header: VFC = memo(() => {
 	const onClickHome = useCallback(() => router.push('/home'), []);
 
 	// Link 新規メモを押したときの処理を記載する関数
-	const onClicNewMemo = useCallback(() => router.push('/new'), []);
+	const onClickNewMemo = useCallback(() => router.push('/new'), []);
 
 	// Link ヘルプを押したときの処理を記載する関数
-	const onClickHelp = useCallback(() => router.push('help'), []);
+	const onClickHelp = useCallback(() => router.push('/help'), []);
 
 	// Link ログアウトを押したときの処理を記載する関数
-	const onClickLogout = useCallback(() => router.push('/'), []);
+	const onClickLogout = useCallback(() => router.push('/login'), []);
 
 	return (
 		<>
@@ -31,7 +31,7 @@ export const Header: VFC = memo(() => {
 				<Spacer />
 				<Flex align="center">
 					<Box pr={4}>
-						<Link onClick={onClicNewMemo}>新規メモ</Link>
+						<Link onClick={onClickNewMemo}>新規メモ</Link>
 					</Box>
 					<Box pr={4}>
 						<Link onClick={onClickHome} textAlign="center">

@@ -22,7 +22,7 @@ type Props = {
 	id: string;
 };
 
-export const DeleteFunction: VFC<Props> = memo((props) => {
+export const DeleteButton: VFC<Props> = memo((props) => {
 	const { id } = props;
 	const [isOpen, setIsOpen] = useState(false);
 	const onClose = () => setIsOpen(false);
@@ -78,4 +78,4 @@ export const DeleteFunction: VFC<Props> = memo((props) => {
 	);
 });
 
-DeleteFunction.displayName = 'DeleteFunction';
+DeleteButton.displayName = 'DeleteButton';

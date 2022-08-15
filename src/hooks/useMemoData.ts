@@ -37,7 +37,7 @@ export const useMemoData = () => {
 				password: password,
 			})
 			.then((response) => {
-				console.log(response);
+				// console.log(response);
 				// 実装が必要な処理「取得したトークン情報をローカルストレージへ保存する」
 				// 取得した情報をJSON形式へ変換し、変数へ格納する
 				const token = JSON.stringify(response.data);
@@ -51,13 +51,14 @@ export const useMemoData = () => {
 			})
 			.catch((error) => {
 				// 情報が一致しない場合にcatchへ処理が遷移していることを確認
-				console.log(error);
+				// console.log(error);
 				toast({
 					title: 'ログインに失敗しました',
 					status: 'error',
 					isClosable: true,
 				});
 				// ログインページへルーティング
+				router.push('/login');
 			});
 	}, []);
 
@@ -89,7 +90,7 @@ export const useMemoData = () => {
 						status: 'error',
 						isClosable: true,
 					});
-					router.push('/');
+					router.push('/home');
 				});
 		}
 	}, []);
@@ -188,7 +189,7 @@ export const useMemoData = () => {
 			})
 			.then((response) => {
 				// レスポンスとして期待するデータ
-				console.log(response);
+				// console.log(response);
 				toast({
 					title: 'メモの削除が完了しました',
 					status: 'success',
@@ -197,7 +198,7 @@ export const useMemoData = () => {
 			})
 			.catch((error) => {
 				// エラー時のロジックはほぼ共通化できるため、後ほど実装
-				console.log(error);
+				// console.log(error);
 				toast({
 					title: 'メモの削除に失敗しました',
 					status: 'error',
