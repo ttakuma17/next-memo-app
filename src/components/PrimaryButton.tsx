@@ -9,13 +9,14 @@ type Props = {
 };
 
 export const PrimaryButton: VFC<Props> = memo((props) => {
-	const { children, onClick } = props;
+	const { children, onClick, disabled } = props;
 	return (
 		<Button
 			m={2}
 			bg="cyan.500"
 			color="white"
 			_hover={{ opacity: 0.8 }}
+			disabled={disabled}
 			onClick={onClick}>
 			{children}
 		</Button>

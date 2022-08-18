@@ -20,10 +20,11 @@ import { useMemoData } from '../hooks/useMemoData';
 
 type Props = {
 	id: string;
+	disabled?: boolean;
 };
 
 export const DeleteButton: VFC<Props> = memo((props) => {
-	const { id } = props;
+	const { id, disabled } = props;
 	const [isOpen, setIsOpen] = useState(false);
 	const onClose = () => setIsOpen(false);
 	const cancelRef = useRef<HTMLButtonElement>(null);
@@ -36,7 +37,9 @@ export const DeleteButton: VFC<Props> = memo((props) => {
 				onClick={() => {
 					console.log(id); // idは取れた
 					setIsOpen(true);
-				}}>
+				}}
+				disabled={disabled}
+			>
 				削除
 			</Button>
 
