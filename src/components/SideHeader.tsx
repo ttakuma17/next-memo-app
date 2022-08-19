@@ -1,18 +1,10 @@
 import { memo, useCallback, VFC } from 'react';
-import { Flex, Heading, Spacer, Link, Box, Text, Button } from '@chakra-ui/react';
-import { RiLoginBoxLine, RiLogoutBoxLine, RiHome2Line, RiQuestionLine, RiFileAddLine } from "react-icons/ri";
+import { Flex, Heading, Spacer, Text, Button } from '@chakra-ui/react';
+import { RiLogoutBoxLine, RiHome2Line, RiQuestionLine, RiFileAddLine } from "react-icons/ri";
 import { useRouter } from 'next/router';
 
-// RiLoginBoxLine
-// RiLogoutBoxLine
-// RiHome2Line
-// RiQuestionLine
-// RiPencilLine
-// RiReactjsLine
-
-
 // イベントの型定義が必要となる
-export const Header: VFC = memo(() => {
+export const SideHeader: VFC = memo(() => {
 	const router = useRouter();
 
 	// Link メモ一覧を押したときの処理を記載する関数
@@ -28,20 +20,27 @@ export const Header: VFC = memo(() => {
 	const onClickLogout = useCallback(() => router.push('/login'), []);
 
 	return (
-		<Flex as="nav" bg="cyan.600" color="gray.50" align="center">
+		<Flex as="nav" bg="cyan.600" color="gray.50" flexDirection="column" height="100vh">
 
-			<Heading as="h1" size="md" textAlign="center" pl={4}>おつかいメモ</Heading>
+			<Heading as="h1" size="md" mt={8}>
+				<Text align="center" pr={2} pl={2}>お</Text>
+				<Text align="center" pr={2} pl={2}>つ</Text>
+				<Text align="center" pr={2} pl={2}>か</Text>
+				<Text align="center" pr={2} pl={2}>い</Text>
+				<Text align="center" pr={2} pl={2}>メ</Text>
+				<Text align="center" pr={2} pl={2}>モ</Text>
+			</Heading>
 
 			<Spacer />
 
-			<Flex align="center" mt={2} mb={2}>
-				<Button variant='ghost' onClick={onClickNewMemo}>
+			<Flex align="center" flexDirection="column" mb={8}>
+				<Button variant='ghost' mb={4} onClick={onClickNewMemo}>
 					<RiFileAddLine size={25} />
 				</Button>
-				<Button variant='ghost' onClick={onClickHome}>
+				<Button variant='ghost' mb={4} onClick={onClickHome}>
 					<RiHome2Line size={25} />
 				</Button>
-				<Button variant='ghost' onClick={onClickHelp}>
+				<Button variant='ghost' mb={4} onClick={onClickHelp}>
 					<RiQuestionLine size={25} />
 				</Button>
 				<Button variant='ghost' onClick={onClickLogout}>
@@ -49,8 +48,8 @@ export const Header: VFC = memo(() => {
 				</Button>
 			</Flex>
 
-		</Flex >
+		</Flex>
 	);
 });
 
-Header.displayName = 'Header';
+SideHeader.displayName = 'SideHeader';
