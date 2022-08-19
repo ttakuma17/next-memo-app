@@ -1,15 +1,7 @@
 import { memo, useCallback, VFC } from 'react';
-import { Flex, Heading, Spacer, Link, Box, Text, Button } from '@chakra-ui/react';
-import { RiLoginBoxLine, RiLogoutBoxLine, RiHome2Line, RiQuestionLine, RiFileAddLine } from "react-icons/ri";
+import { Flex, Heading, Spacer, Button } from '@chakra-ui/react';
+import { RiLogoutBoxLine, RiHome2Line, RiQuestionLine, RiFileAddLine } from "react-icons/ri";
 import { useRouter } from 'next/router';
-
-// RiLoginBoxLine
-// RiLogoutBoxLine
-// RiHome2Line
-// RiQuestionLine
-// RiPencilLine
-// RiReactjsLine
-
 
 // イベントの型定義が必要となる
 export const Header: VFC = memo(() => {

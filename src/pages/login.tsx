@@ -7,7 +7,9 @@ import { Button, Center } from '@chakra-ui/react';
 import { PrimaryButton } from '../components/PrimaryButton';
 import { useMemoData } from '../hooks/useMemoData';
 
-export const Login = () => {
+import { RiLoginBoxLine } from "react-icons/ri";
+
+export const Login: VFC = memo(() => {
 	const [email, setEmail] = useState("");
 	const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
 
@@ -23,8 +25,8 @@ export const Login = () => {
 		<Flex align="center" justify="center" h="100vh">
 			<Center>
 				<Box p={8} m={4} bg="white" borderRadius="2xl">
-					<Heading as="h3" size="lg" textAlign="center">
-						おつかいメモアプリ
+					<Heading as="h3" size="lg" textAlign="center" color="gray.500">
+						おつかいメモ
 					</Heading>
 					<Flex>
 						<Box textAlign="center">
@@ -52,13 +54,14 @@ export const Login = () => {
 								onClick={() => {
 									getToken(email, password);
 								}}
-							>ログイン</PrimaryButton>
+							>ログイン<RiLoginBoxLine size={20} /></PrimaryButton>
 						</Box>
 					</Flex>
 				</Box>
 			</Center>
 		</Flex>
 	);
-}
+})
 
 export default Login;
+Login.displayName = "Login";
