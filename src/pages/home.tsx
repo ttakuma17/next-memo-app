@@ -1,5 +1,5 @@
 import { memo, useCallback, useEffect, VFC } from 'react';
-import { Wrap, WrapItem, useDisclosure } from '@chakra-ui/react';
+import { Flex, Wrap, WrapItem, useDisclosure } from '@chakra-ui/react';
 
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -46,26 +46,29 @@ export const Home = () => {
 
 	return (
 		<>
-			<Header />
-			<Wrap p={4} justify="center">
-				{memos.map((memo) => (
-					<WrapItem key={memo.id} mx="auto">
-						<MemoItem
-							id={memo.id}
-							title={memo.title}
-							description={memo.description}
-							mark_div={memo.mark_div}
-							onClick={onClickMemo}
-						/>
-					</WrapItem>
-				))}
-			</Wrap>
+			<Flex>
+				<Header />
+				<Wrap p={4} justify="center">
+					{memos.map((memo) => (
+						<WrapItem key={memo.id} mx="auto">
+							<MemoItem
+								id={memo.id}
+								title={memo.title}
+								description={memo.description}
+								mark_div={memo.mark_div}
+								onClick={onClickMemo}
+							/>
+						</WrapItem>
+					))}
+				</Wrap>
+				<Footer />
+			</Flex>
 			<UpdateMemoModal
 				isOpen={isOpen}
 				onClose={onClose}
 				selectedMemo={selectedMemo}
 			/>
-			<Footer />
+
 		</>
 	);
 }
