@@ -20,6 +20,7 @@ export const SideHeader: VFC = memo(() => {
 	const onClickLogout = useCallback(() => router.push('/login'), []);
 
 	return (
+		// position fixedで固定させることはできるが、要素のレイアウトがうまく調整できていないことが課題
 		<Flex as="nav" bg="cyan.600" color="gray.50" flexDirection="column" height="100vh">
 
 			<Heading as="h1" size="md" mt={8}>

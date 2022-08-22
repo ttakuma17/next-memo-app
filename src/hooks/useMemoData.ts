@@ -15,6 +15,7 @@ type Memo = {
 
 // バックエンドのmemoデータを取得する際に利用するカスタムフック
 export const useMemoData = () => {
+	const [loading, setLoading] = useState<boolean>(false);
 	const [memos, setMemos] = useState<Array<Memo>>([]);
 	const router = useRouter();
 	const toast = useToast();
@@ -69,11 +70,16 @@ export const useMemoData = () => {
 		// tokenInLocalStorage の型推論から string | null の可能性があると言われている
 		// 型ガードで対応する
 		if (tokenInLocalStorage === null) {
-			console.error('ローカルストレージへ保存できていません');
+			toast({
+				title: 'ローカルストレージへ保存できていません',
+				status: 'error',
+				isClosable: true,
+			});
 		} else {
 			// 以下の処理へ移行した時点でローカルストレージがNullである可能性は排除できる = 安全なコード
 			const token = JSON.parse(tokenInLocalStorage);
-			console.log(typeof token.access_token);
+			// console.log(typeof token.access_token);
+			setLoading(true);
 			axiosInstance
 				.get<Array<Memo>>('/memos', {
 					headers: {
@@ -91,6 +97,10 @@ export const useMemoData = () => {
 						isClosable: true,
 					});
 					router.push('/home');
+				}).finally(() => {
+					// loading が無限に続く事象
+					// consoleで確認したところ、ここの処理は実行されている模様
+					setLoading(false);
 				});
 		}
 	}, []);
@@ -210,6 +220,7 @@ export const useMemoData = () => {
 	return {
 		getToken,
 		getAllMemos,
+		loading,
 		memos,
 		createNewMemo,
 		updateMemo,
