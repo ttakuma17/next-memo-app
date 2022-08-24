@@ -12,7 +12,8 @@ export const PrimaryButton: VFC<Props> = memo((props) => {
 	const { children, onClick, disabled } = props;
 	return (
 		<Button
-			m={2}
+			my={2}
+			mx={4}
 			bg="cyan.500"
 			color="white"
 			_hover={{ opacity: 0.8 }}

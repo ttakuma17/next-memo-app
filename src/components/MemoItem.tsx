@@ -1,6 +1,5 @@
 import { memo, useState, VFC } from 'react';
-import { Checkbox } from '@chakra-ui/checkbox';
-import { Flex, Heading } from '@chakra-ui/layout';
+import { Flex, Heading, Spacer } from '@chakra-ui/layout';
 import { Box, Switch } from '@chakra-ui/react';
 import { Textarea } from '@chakra-ui/textarea';
 
@@ -36,9 +35,8 @@ export const MemoItem: VFC<Props> = memo((props) => {
 		<>
 			{isSwitchOn ?
 				<Box
-					pt={2}
-					pl={4}
-					pr={4}
+					py={2}
+					px={4}
 					w="360px"
 					h="300px"
 					bg="white"
@@ -46,14 +44,14 @@ export const MemoItem: VFC<Props> = memo((props) => {
 					borderRadius="md"
 					_hover={{ cursor: 'pointer', opacity: 0.8 }}>
 					<Flex>
-						<Heading size="md" pl={1} pb={4} textColor='gray.700'>
+						<Heading size="md" pl={1} py={4} textColor='gray.700'>
 							{title}
 						</Heading>
 					</Flex>
 					<Textarea
 						size="sm"
 						resize="none"
-						h="180px"
+						h="160px"
 						isReadOnly={true}
 						autoFocus={false}
 						value={description}
@@ -62,14 +60,14 @@ export const MemoItem: VFC<Props> = memo((props) => {
 					<Flex pt={2} alignItems="center">
 						<PrimaryButton onClick={() => onClick(id)}>更新</PrimaryButton>
 						<DeleteButton id={id} />
-						<Switch id='isSwitch' ml={3} isChecked={isSwitchOn} onChange={() => setIsSwitchOn(!isSwitchOn)} />
+						<Spacer />
+						<Switch id='isSwitch' px={4} isChecked={isSwitchOn} onChange={() => setIsSwitchOn(!isSwitchOn)} />
 					</Flex>
 				</Box>
 				:
 				<Box
-					pt={2}
-					pl={4}
-					pr={4}
+					py={2}
+					px={4}
 					w="360px"
 					h="300px"
 					bg="white"
@@ -77,14 +75,14 @@ export const MemoItem: VFC<Props> = memo((props) => {
 					borderRadius="md"
 					_hover={{ cursor: 'pointer', opacity: 0.8 }}>
 					<Flex>
-						<Heading size="md" pl={1} pb={4} textColor='gray.400'>
+						<Heading size="md" pl={1} py={4} textColor='gray.400'>
 							{title}
 						</Heading>
 					</Flex>
 					<Textarea
 						size="sm"
 						resize="none"
-						h="180px"
+						h="160px"
 						isReadOnly={true}
 						autoFocus={false}
 						value={description}
@@ -93,7 +91,8 @@ export const MemoItem: VFC<Props> = memo((props) => {
 					<Flex pt={2} alignItems="center">
 						<PrimaryButton onClick={() => onClick(id)} disabled={true}>更新</PrimaryButton>
 						<DeleteButton id={id} disabled={true} />
-						<Switch id='isSwitch' ml={3} isChecked={isSwitchOn} onChange={() => setIsSwitchOn(!isSwitchOn)} />
+						<Spacer />
+						<Switch id='isSwitch' px={4} ml={3} isChecked={isSwitchOn} onChange={() => setIsSwitchOn(!isSwitchOn)} />
 					</Flex>
 				</Box>
 			}

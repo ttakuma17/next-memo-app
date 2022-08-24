@@ -21,7 +21,7 @@ export const SideHeader: VFC = memo(() => {
 
 	return (
 		// position fixedで固定させることはできるが、要素のレイアウトがうまく調整できていないことが課題
-		<Flex as="nav" bg="cyan.600" color="gray.50" flexDirection="column" height="100vh">
+		<Flex as="nav" bg="cyan.600" color="gray.50" flexDirection="column" height="100vh" position="fixed">
 
 			<Heading as="h1" size="md" mt={8}>
 				<Text align="center" pr={2} pl={2}>お</Text>

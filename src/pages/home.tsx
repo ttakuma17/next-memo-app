@@ -50,12 +50,12 @@ export const Home: VFC = memo(() => {
 		<>
 			<Flex>
 				<SideHeader />
-				{true ? (
-					<Center h="100vh">
+				{loading ? (
+					<Center h="100vh" m="auto">
 						<Spinner
 							thickness='4px'
 							speed='0.65s'
-							emptyColor='gray.200'
+							emptyColor='gray.400'
 							color='cyan.500'
 							size='xl'
 						/>
